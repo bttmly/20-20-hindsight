@@ -1,0 +1,784 @@
+@import "mixins"
+//
+
+bodyFont = ff-tisa-web-pro, chaparral-pro, georgia, serif
+altFont = proxima-nova, museo-sans, sans-serif
+condFont = proxima-nova-condensed, museo-sans-condensed, sans-serif
+accentColor = #2c6038
+altAccent = lighten(accentColor, 20%)
+// accentColor = #4ba35f
+darkColor = #333
+altDark = #484848
+
+*,
+*:before,
+*:after
+  -webkit-box-sizing border-box
+  -moz-box-sizing border-box
+  box-sizing border-box
+  
+html
+  font-size 100%
+  color darkColor
+  line-height 1.5
+  -webkit-font-smoothing antialiased
+
+body
+  font-family bodyFont
+  background #f7f7f7
+  margin 0
+
+a
+  color accentColor
+  &:hover
+    color lighten(accentColor, 20%)
+
+heading()
+  margin 2rem 0 1rem 0
+  line-height 1
+
+_h1()
+  font-size 3rem
+  font-family condFont
+  heading()
+
+_h2()
+  font-size 2.5rem
+  font-family condFont
+  heading()
+
+_h3()
+  font-size 2rem
+  font-family altFont
+  heading()
+
+_h4()
+  font-size 1.5rem
+  font-family altFont
+  heading()
+
+_h5()
+  font-size 1rem
+  font-family altFont
+  heading()
+
+_h6()
+  font-family altFont
+  font-size .75rem
+  line-height 1rem
+  text-transform uppercase
+  margin 1rem 0 .5rem 0
+  
+h1
+  _h1()
+  a
+    text-decoration none
+    color darkColor
+    &:hover
+      color altDark
+      text-decoration underline
+
+h2
+  _h2()
+  a
+    text-decoration none
+    color darkColor
+    &:hover
+      color altDark
+      text-decoration underline
+  
+h3
+  _h3()
+
+h4
+  _h4()
+
+h5
+  _h5()
+
+h6
+  _h6()
+
+img
+  max-width 100%
+
+ul
+ol
+  padding 0
+  -webkit-margin-before 0
+  -webkit-margin-after 0
+  -webkit-padding-start 0
+  -moz-padding-start 0
+
+.container
+.column
+  margin 0 auto
+  
+.container
+  width 100%
+
+.column
+  width 90%
+
+#content
+  padding-top 2rem
+
+.main-title
+  text-align center
+  text-transform uppercase
+  margin-bottom .5rem
+  
+.tagline
+  font-style italic
+  text-align center
+  margin-top .5rem
+  
+.post
+  margin-bottom 2rem
+  &:not(:last-of-type)
+    border-bottom 1px solid #aaa
+  
+.post-title
+  _h2()
+  text-transform capitalize
+  margin-top 0
+  a
+    text-decoration none
+    color darkColor
+    &:hover
+      color altDark
+      text-decoration underline
+
+.post-header
+  margin-bottom 1rem
+  img
+    width 100%
+  
+.post-body
+  margin-bottom 1rem
+  img
+    width 100%
+  .lede
+    font-size 1.25rem
+    font-style italic
+    color altDark
+  blockquote
+    margin 2rem 0
+    padding 1rem
+    font-style italic
+    border-top 1px solid #aaa
+    border-bottom 1px solid #aaa
+  figure
+    margin 2rem 0
+    img
+      width 100%
+      margin-bottom 1rem
+    figcaption:not(:empty)
+      font-style italic
+      margin-bottom 1rem
+      padding-bottom 1rem
+      border-bottom .125rem solid accentColor
+      em
+      i
+        font-style normal
+  ul
+  ol
+    margin 1rem 0 1rem 1.25rem
+    li
+      margin .5rem 0
+  .score
+  .scoreboard
+    font-weight bold
+    font-family altFont
+  
+.matchup-names
+  display block
+  _h3()
+  margin 2rem 0 0 0
+.matchup-teams
+  display block
+  _h6()
+  padding 0
+  margin 0
+  border-bottom 1px solid accentColor
+  margin-bottom 1rem
+
+.matchup-score
+  font-size 1.25rem
+  > span
+    display block
+    width 8em
+    &:first-of-type
+      padding-bottom .25em
+      margin-bottom .25em
+      border-bottom 1px solid #ccc
+    > span
+      &:first-of-type
+        display inline-block
+        width 6em
+      span
+        padding-left .5rem
+        font-size .75rem
+  .winner
+    font-weight bold
+  
+.post-type-photoset
+  font-size 0
+  img
+    width 47.5%
+    display inline-block
+    &:nth-child(even)
+      margin-left 5%
+    &.first-photoset-image
+      margin-left 0
+      margin-right 0
+      width 100%
+  
+.post-footer
+  font-family condFont
+  font-weight bold
+  text-transform uppercase
+  margin-bottom 1rem
+  padding-bottom 1rem
+  a
+    color #999
+    text-decoration none
+    &:hover
+      color #555
+      text-decoration underline
+
+.each-tag:after
+  content ', '
+.each-tag:last-of-type:after
+  content ''
+
+// FIELD
+
+.text 
+  position absolute
+  width 100%
+  height 100%
+  z-index 1
+  color: #fff
+  font-family condFont
+
+.logotype-20
+  font-weight 700
+  display block
+  text-align center
+  letter-spacing 1rem
+  font-size 5rem
+  color #ffffff
+  line-height 1
+  
+.logotype__top-20 
+  transform rotate(.5turn)
+  -webkit-transform rotate(.5turn)
+  margin-top 1rem
+  margin-left -1rem
+
+.logotype__hindsight--wide 
+  text-transform uppercase
+  font-weight 700
+  display block
+  text-align center
+  font-size 4rem
+  color #ffffff
+  line-height 4rem
+  text-shadow 1px 1px 2px rgba(0,0,0,.4), 0 0 1px rgba(0,0,0,.7)
+    
+.logotype__bottom-20
+  margin-left 1rem
+
+.half 
+  position absolute
+  width 50%
+  height 100%
+
+.half--left 
+  border-right .125em solid #fff
+
+.half--right 
+  border-left .125em solid #fff
+  margin-left 50%
+
+.top-field 
+  width 100%
+  position absolute
+  top 0
+
+.bottom-field 
+  width 100%
+  position absolute
+  bottom 0
+  overflow hidden
+
+.half-container 
+  font-size 0
+  height 3rem
+  &:after 
+    content ""
+    width 100%
+    display inline-block
+  & > li 
+    display inline-block
+    font-size 1rem
+    width 50%
+    height 100%
+
+.yard-container 
+  font-size 0
+  height 100%
+  &:after 
+    content ""
+    width 100%
+    display inline-block
+  & > li 
+    display inline-block
+    font-size 1rem
+    width 33.33333333333333333%
+    height 100%
+    border-left .125em solid #fff
+    border-right .125em solid #fff
+    &:first-of-type 
+      border-left none
+    &:last-of-type 
+      border-right none
+
+#field
+  display none
+  position relative
+  width 100%
+  height 16rem
+  background-color #2c6038
+  box-shadow 0 0 8px rgba(0, 0, 0, .75)
+  // border-top 1rem solid #ffffff
+  // border-bottom 1rem solid #ffffff
+  ul 
+    margin 0 
+
+.first-index-page 
+  #field
+    display block
+  #top-bar
+    display none
+
+.fixed-header 
+  #field
+    z-index 1
+    position fixed
+    top 0
+    transform translate3d(0, -81.25%, 0)
+    -webkit-transform translate3d(0, -81.25%, 0)
+  #content
+    margin-top 16rem
+
+#field-container
+  display none
+
+.sideline
+  position absolute
+  z-index 0
+  width 100%
+  height 1rem
+  background #fff
+  top 0
+  
+@media screen and (min-width: 37.5em) 
+  html
+    font-size 112.5%
+  .column 
+    width 77%
+
+@media screen and (min-width:  50em)
+	html
+	  font-size 125%
+  .column
+    width 72%
+
+@media screen and (min-width:  64.375em)
+	html
+	  font-size 137.5%
+  .column
+    width 67%
+
+@media screen and (min-width:  75em) and (min-height: 31.25em)
+	html
+	  font-size 150%
+  .column
+    width 52%
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+.link-color
+  color accentColor
+
+.pagination
+  font-family altFont
+  border-top 1px solid darkColor
+  border-bottom 1px solid darkColor
+  padding 1rem 0
+  margin 1rem 0 2rem 0
+  ul
+    font-size 0
+    li
+      font-size 1.5rem
+      display inline-block
+      width 33.333333%
+      &:nth-of-type(2)
+        text-align center
+      &:nth-of-type(3)
+        text-align right
+      span
+        display block
+    .previous-post:before
+      content '« '
+    .older-posts:before
+      content '« '
+    .next-post:after
+      content ' »'
+    .newer-posts:after
+      content ' »'
+
+::selection
+  background desaturate(lighten(accentColor,50%), 25%)
+  color #fff
+
+// UTILITY CLASSES
+
+.page--index
+.page-type-index
+  .tag-only
+  .perma-only
+  .only-tag-page
+  .only-perma-page
+  .not-index-page
+    display none
+
+    
+.page--perma
+.page-type-perma
+  .index-only
+  .tag-only
+  .only-index-page
+  .only-tag-page
+  .not-perma-page
+    display none
+
+.page--tag
+.page-type-tag
+  .index-only
+  .perma-only
+  .only-index-page
+  .only-perma-page
+  .not-tag-page
+    display none
+
+  
+.text-center
+  text-align center
+  
+.text-right
+  text-align right
+
+.text-small
+  font-size .75em
+  
+.text-regular
+  font-size 1rem
+
+.text-big
+  font-size 1.25em
+
+.text-bigger
+  font-size 1.5em
+
+// list styles
+.ul-basic
+  list-style-type disc
+  margin-left 1rem
+
+.ol-basic
+  list-style-type decimal
+  margin-left 1rem
+  
+// READ MORE
+.toggle-read-more
+.tumblr-read-more
+  color accentColor
+  cursor pointer
+  text-decoration none
+  &:hover
+    text-decoration underline
+
+.page-type-index .read-more
+.page-type-tag .read-more
+  display: none
+
+p
+ul
+ol
+h1
+h2
+h3
+h4
+h5
+h6
+  &:empty
+    display none
+
+.no-touch:not(.page-type-perma)
+    .post-body
+      cursor pointer
+      padding 1rem
+      &:hover 
+        background #fff
+        box-shadow 0 0 4px rgba(0,0,0, .25)
+        .post-title
+          a
+            color altDark
+            text-decoration underline
+            position relative
+        .toggle-read-more
+        .tumblr-read-more
+        .read-more-link
+          color altAccent
+          text-decoration underline
+    .post-footer
+      padding 0 1rem 1rem 1rem
+      &:after
+        width -webkit-calc(100% - 2rem)
+        width calc(100% - 2rem)
+        margin 0 auto
+
+#text-title
+  display none
+
+#top-bar
+  position absolute
+  top 0
+  left 0
+  height 3rem
+  width 100%
+  background accentColor
+  color white
+  font-family condFont
+  padding 0 .75rem
+  .top-bar-title
+    font-weight bold
+    font-size 1.5rem
+    line-height 3rem
+    text-transform uppercase
+    a
+      color #fff
+      text-decoration none
+      &:hover
+        color #ddd
+  .top-bar-tagline
+    display none
+    padding-left 1rem
+
+#prev-post
+#next-post
+  display none
+  position fixed
+  opacity 0
+  width 4rem
+  height 100vh
+  top 0
+  background rgba(0,0,0,.1)
+  cursor pointer
+  color rgba(0,0,0,.3)
+  span
+    display block
+    text-align center
+  .nav-chevron
+    margin-top 4rem
+    font-size 10rem
+  .nav-text
+    font-size .75rem
+    font-family condFont
+    font-weight bold
+    text-transform uppercase
+    
+#prev-post
+  left 0
+  
+#next-post
+  right 0
+      
+.page-type-perma.page-width-wide
+  #prev-post
+  #next-post
+    display block
+    transition opacity .25s ease
+    &:hover
+      opacity 1
+      
+.page-type-perma .lede
+  display none
+  
+  
+// dropdown navigation
+
+.no-js .dropdown-navigation
+.no-csstransforms3d .dropdown-navigation
+  display none !important
+
+#dropdown-toggle
+  margin 1rem 0 0 1rem
+  width 2rem
+  height 1.75rem
+  padding .25rem
+  cursor pointer
+  z-index 1000
+  transition all .5s ease-in-out
+  i
+    display block
+    width 100%
+    height .25rem
+    background #333
+    transform rotate(0deg)
+    -webkit-transform rotate(0deg)
+    transition all .5s ease-in-out
+    &:not(:first-of-type)
+      margin-top .25rem
+
+.dropdown-open
+  #dropdown-toggle
+    i
+      &:first-of-type
+        transform rotate(45deg) translate3d(33%, 90%, 0)
+        -webkit-transform rotate(45deg) translate3d(33%, 90%, 0)
+      &:nth-of-type(2)
+        opacity 0
+      &:last-of-type
+        transform rotate(-45deg) translate(30%, -90%)
+        -webkit-transform rotate(-45deg) translate3d(30%, -90%, 0)
+  .dropdown-navigation
+    transform translate3d(0,0,0)
+    -webkit-transform translate3d(0,0,0)
+  
+        
+.dropdown-navigation
+  position fixed
+  z-index 1200
+  top 0
+  left 0
+  width 12rem
+  height 100vh
+  background #333
+  transition transform ease-in-out .5s
+  -webkit-transition -webkit-transform ease-in-out .5s
+  transform translate3d(-100%, 0, 0)
+  -webkit-transform translate3d(-100%, 0, 0)
+  ul
+    list-style-type none
+    li
+      font-size 1rem
+      margin 1rem
+
+
+.fixed-header .field-navigation
+.dropdown-open .field-navigation
+  // opacity 1
+  transform translate3d(0, 0, 0)
+  -webkit-transform translate3d(0, 0, 0)
+  z-index 2000
+
+.page-width-narrow .field-navigation
+.page-width-medium .field-navigation
+  transform translate3d(0, 3rem, 0)
+  -webkit-transform translate3d(0, 3rem, 0)
+
+.field-navigation
+  transition all .33s ease-in-out
+  transform translate3d(0, 3rem, 0)
+  -webkit-transform translate3d(0, 3rem, 0)
+  // opacity 0
+  width 100%
+  font-size 0
+  height 3rem
+  position absolute
+  bottom 0
+  font-family altFont
+  font-weight 700
+  text-transform uppercase
+  ul
+    height 3rem
+    width 100%
+  li
+    font-size 1rem
+    line-height 3rem
+    display inline-block
+    width 16.6666666666%
+    text-align center
+    &:not(:first-of-type)
+      border-left solid .125rem transparent
+    &:not(:last-of-type)
+      border-right solid .125rem transparent
+  a
+    color white
+    display block
+    width 100%
+    transition background .2s ease
+    &:hover 
+      background rgba(0,0,0,.25)
+      
+// Baseline table styles.      
+table
+  font-family condFont
+  margin 2rem 0
+  border-collapse collapse
+  width 100%
+
+td
+  padding .25rem .5rem
+
+thead
+  font-weight bold
+  background #333
+  color white
+
+th
+  margin 0 .5rem
+
+tbody tr:nth-of-type(even)
+  background #eee
+  border-top 1px solid #ddd
+  border-bottom 1px solid #ddd
+
+
+
+.inline-block-half
+  display inline-block
+  width 49%
+  
+
+.post-body ul
+.post-body li
+  list-style-type none
+
+.full-width
+  width 100%
+.bold
+.text-bold
+  font-weight bold
+.italic
+.text-italic
+  font-style italic
+.vertical-align-middle
+  vertical-align middle
+.display-table
+  display table
+.display-table-cell
+  display table-cell
+.display-block
+  display block
+.display-inline
+  display inline

@@ -1,0 +1,43 @@
+{% for post in site.posts %}
+  {% if post.url == page.url %}
+  
+    <div class="single-post-navigation">
+      <!--
+      {% assign index = forloop.index %}
+       
+      {% capture prevIndex %}{{ index | minus: '1' }}{% endcapture %}
+      {% capture nextIndex %}{{ index | plus: '1' }}{% endcapture %}
+      
+      {% assign prevPost = site.posts[prevIndex] %}
+      {% assign nextPost = site.posts[nextIndex] %}
+      
+      {% if nextPost %}
+        <a id="go-next-post" class="next-post" href="{{ nextPost.url }}">Next Post</a>
+      {% else %}
+        <span class="next-post disabled">Next Post</span>
+      {% endif %}
+      
+      {% if prevPost %}
+        <a id="go-prev-post" class="next-post" href="{{ prevPost.url }}">Previous Post</a>
+      {% else %}
+        <span class="prev-post disabled">Previous Post</span>
+      {% endif %}
+      -->
+      
+      {% if page.next %}
+        <a id="go-next-post" class="next-post" href="{{ page.next.url }}">Next Post</a>
+      {% else %}
+        <span class="next-post disabled">Next Post</span>
+      {% endif %}
+      
+      {% if page.previous %}
+        <a id="go-prev-post" class="next-post" href="{{ page.previous.url }}">Previous Post</a>
+      {% else %}
+        <span class="prev-post disabled">Previous Post</span>
+      {% endif %}
+      
+      
+    </div>
+  
+  {% endif %}
+{% endfor %}
