@@ -1,0 +1,35 @@
+<div class="first-post">
+  <p class="newest-post">Newest Post</p>
+  <a class="post-wrap-link" href="{{ site.posts.first.url }}">
+    <h2 class="post-title">{{ site.posts.first.title }}</h2>
+    <p class="post-date">{{ site.posts.first.date }}</p>
+    {{ site.posts.first.content }}
+  </a>
+</div>
+
+<div class="post-list">
+  <p class="recent-posts">Recent Posts</p>
+  <ul class="posts">
+    {% for post in posts %}
+      {% unless forloop.first %}
+        <li class="each-post">
+          <a class="post-wrap-link" href="{{ post.url }}">
+            <h2 class="post-title">{{ post.title }}</h2>
+            <p class="post-date">{{ post.date }}</p>
+            {{ post.excerpt }}
+          </a>
+          
+            {% if post.tags %}
+              <p class="post-tags">Tags:&nbsp;
+                {% for tag in post.tags %}
+                  {{ tag }}&nbsp;
+                {% endfor %}
+              </p>
+            {% endif %}
+            
+        </li>
+      {% endunless %}
+    {% endfor %}
+  </ul>
+  <p class="show-more-posts">Show More Posts</p>
+</div>
