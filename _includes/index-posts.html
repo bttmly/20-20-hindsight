@@ -1,6 +1,6 @@
 <div class="first-post">
   <p class="newest-post">Newest Post</p>
-  <a class="post-wrap-link" href="{{ site.posts.first.url }}">
+  <a class="post-wrap-link" href="{{ site.posts.first.url | remove_first:'/' }}">
     <h2 class="post-title">{{ site.posts.first.title }}</h2>
     <p class="post-date">{{ site.posts.first.date }}</p>
     {{ site.posts.first.content }}
@@ -10,13 +10,13 @@
 <div class="post-list">
   <p class="recent-posts">Recent Posts</p>
   <ul class="posts">
-    {% for post in posts %}
+    {% for post in site.posts %}
       {% unless forloop.first %}
         <li class="each-post">
-          <a class="post-wrap-link" href="{{ post.url }}">
+          <a class="post-wrap-link" href="{{ post.url | remove_first:'/'}}">
             <h2 class="post-title">{{ post.title }}</h2>
             <p class="post-date">{{ post.date }}</p>
-            {{ post.excerpt }}
+            <!-- {{ post.excerpt }} -->
           </a>
           
             {% if post.tags %}
