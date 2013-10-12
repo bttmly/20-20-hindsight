@@ -3,3 +3,4 @@ markdown: redcarpet
 pygments: true
 excerpt_separator: <!-- more -->
 permalink: /blog/:year/:month/:day/:title.html
+basePath: /20-20-hindsight/
