@@ -1,45 +1,21 @@
-{% for post in site.posts %}
-  {% if post.url == page.url %}
-  
-    <div class="single-post-navigation">
-      <!--
-      {% assign index = forloop.index %}
-       
-      {% capture prevIndex %}{{ index | minus: '1' }}{% endcapture %}
-      {% capture nextIndex %}{{ index | plus: '1' }}{% endcapture %}
-      
-      {% assign prevPost = site.posts[prevIndex] %}
-      {% assign nextPost = site.posts[nextIndex] %}
-      
-      {% if nextPost %}
-        <a id="go-next-post" class="next-post" href="{{ nextPost.url }}">Next Post</a>
-      {% else %}
-        <span class="next-post disabled">Next Post</span>
-      {% endif %}
-      
-      {% if prevPost %}
-        <a id="go-prev-post" class="next-post" href="{{ prevPost.url }}">Previous Post</a>
-      {% else %}
-        <span class="prev-post disabled">Previous Post</span>
-      {% endif %}
-      -->
-      
-      {% if page.next %}
-        <a id="go-next-post" class="next-post" href="{{ site.basePath }}{{ page.next.url }}">Next Post</a>
-        <p>URL: {{ site.basePath }}{{ page.next.url }}
-      {% else %}
-        <span class="next-post disabled">Next Post</span>
-      {% endif %}
-      
-      {% if page.previous %}
-        <a id="go-prev-post" class="next-post" href="{{ site.basePath }}{{ page.previous.url }}">Previous Post</a>
-        <p>URL: {{ site.basePath }}{{ page.previous.url }}
-      {% else %}
-        <span class="prev-post disabled">Previous Post</span>
-      {% endif %}
-      
-      
+<div class="single-post-nav">
+  {% if page.previous %}
+    <a class="single-post-nav-link single-post-nav-previous" href="{{ site.basePath }}{{ page.previous.url }}">
+      <p class="single-post-nav-title">{{ page.previous.title }}</p>
+    </a>
+  {% else %}
+    <div class="single-post-nav-link single-post-nav-link-disabled single-post-nav-previous">
+      <p>No previous post.</p>
     </div>
-  
   {% endif %}
-{% endfor %}
+
+  {% if page.next %}
+    <a class="single-post-nav-link single-post-nav-next" href="{{ site.basePath }}{{ page.previous.url }}">
+      <p class="single-post-nav-title">{{ page.previous.title }}</p>
+    </a>
+  {% else %}
+    <div class="single-post-nav-link single-post-nav-link-disabled single-post-nav-next">
+      <p>No next post.</p>
+    </div>
+  {% endif %}
+</div>
