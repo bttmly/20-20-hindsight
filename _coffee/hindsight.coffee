@@ -141,13 +141,16 @@ Hindsight = do ->
       target.removeClass cl
     return target.is cl
   
+  # all this does is turn the .table-reflowed class on and off
+  # CSS does everything else.
   tableReflow = (table) ->
     parentWidth = table.parent().width()
     if table.width() > parent.width()
       table.addClass "table-reflowed"
     else 
       table.removeClass "table-reflowed"
-    
+  
+  # call this on window.ready to prep tables for possible reflow   
   tableDataBind = (table) ->
     header = table.find "thead tr" 
     tableBody = table.find "tbody"
@@ -167,6 +170,8 @@ Hindsight = do ->
         tableReflow $(this)
     
     # Fix old formatting problems with post titles.
+    # Not necessary when migrated away from Tumblr.
+    # TODO remove Tumblr-specific fixes 
     do ->
       
       index = ".page-type-index"
