@@ -2,5 +2,5 @@ name: Your New Jekyll Site
 markdown: redcarpet
 pygments: true
 excerpt_separator: <!-- more -->
-permalink: /blog/:year/:month/:day/:title.html
+permalink: blog/:year/:month/:day/:title.html
 basePath: http://20-20-hindsight.github.io/
