@@ -25,14 +25,14 @@
       -->
       
       {% if page.next %}
-        <a id="go-next-post" class="next-post" href="{{ site.basePath }}{{ page.next.url | remove_first:'/' }}">Next Post</a>
+        <a id="go-next-post" class="next-post" href="{{ page.next.url | remove_first:'/' }}">Next Post</a>
         <p>Link Address {{ page.next.url }}
       {% else %}
         <span class="next-post disabled">Next Post</span>
       {% endif %}
       
       {% if page.previous %}
-        <a id="go-prev-post" class="next-post" href="{{ site.basePath }}{{ page.previous.url | remove_first:'/' }}">Previous Post</a>
+        <a id="go-prev-post" class="next-post" href="{{ page.previous.url | remove_first:'/' }}">Previous Post</a>
         <p>Link Address {{ page.previous.url }}
       {% else %}
         <span class="prev-post disabled">Previous Post</span>
