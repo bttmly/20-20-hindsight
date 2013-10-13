@@ -14,8 +14,8 @@
       {% unless forloop.first %}
         <li class="each-post">
           <a class="post-wrap-link" href="{{ site.basePath }}{{ post.url }}">
-            <p class="post-title">{{ post.title }}</p>
-            <p class="post-date">{{ post.date }}</p>
+            <p class="post-list-title">{{ post.title }}</p>
+            <p class="post-list-date">{{ post.date }}</p>
           </a>
           
             {% if post.tags %}
