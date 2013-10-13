@@ -15,7 +15,17 @@
         <li class="each-post">
           <a class="post-wrap-link" href="{{ site.basePath }}{{ post.url }}">
             <p class="post-list-title">{{ post.title }}</p>
-            <p class="post-list-date">{{ post.date }}</p>
+            <p class="post-list-date">
+              {% assign d = page.date | date: "%d" | plus:'0' %} 
+              {% assign m = page.date | date: "%B" %} 
+              {% case m %}
+                {% when 'April' or 'May' or 'June' or 'July' %}{{ m }}
+                {% when 'September' %}Sept.
+                {% else %}{{ page.date | date: "%b" }}.
+                {% endcase %}
+              {{ d }}, 
+              {{ page.date | date: "%Y" }}
+            </p>
           </a>
           
             {% if post.tags %}
