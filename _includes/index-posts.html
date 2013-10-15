@@ -5,6 +5,7 @@
     <ul class="posts">
       {% for post in site.posts %}
         {% unless forloop.first %}
+          {% if forloop.index <= 5 %}
           <li class="each-post">
             <a class="post-wrap-link" href="{{ site.basePath }}{{ post.url }}">
               <p class="post-list-title">{{ post.title }}</p>
@@ -13,6 +14,7 @@
               </p>
             </a>
           </li>
+          {% endif %}
         {% endunless %}
       {% endfor %}
     </ul>
@@ -27,5 +29,5 @@
       {{ site.posts.first.content }}
     </a>
   </div>
-  
+
 </div>

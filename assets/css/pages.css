@@ -24,6 +24,9 @@ body {
   margin-left: 10%;
   width: 60%;
 }
+.posts {
+  list-style-type: none;
+}
 .posts .each-post {
   border-bottom: 1px solid #ccc;
 }
@@ -34,14 +37,16 @@ body {
   display: block;
   color: #000;
   text-decoration: none;
-  padding: 1.5rem;
+  padding: 0.5rem 0;
 }
 .post-wrap-link:hover {
-  background: #fff;
   color: #000;
-  box-shadow: 0 0 4px rgba(0,0,0,0.25);
+  text-decoration: underline;
 }
 .post-list-title {
   font-family: sans-serif;
   font-weight: bold;
+}
+.footer-links {
+  list-style-type: none;
 }
