@@ -1,8 +1,31 @@
+*
+*:after
+*:before
+	box-sizing border-box
+
+inline-block-parent()
+	font-size 0
+
+inline-block-child()
+	font-size 1rem
+	display inline-block
+
 body
 	background #f5f5f5
 
+.index-content-wrapper
+	inline-block-parent()
+	.first-post
+	.post-list
+		inline-block-child()
+	.post-list
+		width 25%
+	.first-post
+		width 75%
+
 .posts .each-post
-	margin-bottom 3rem
+	// margin-bottom 3rem
+	border-bottom 1px solid #ccc
 	&:nth-of-type(n+5)
 		display none
 		

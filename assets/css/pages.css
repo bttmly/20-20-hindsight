@@ -1,8 +1,27 @@
+*
+*: after;
+*:before {
+  box-sizing: border-box;
+}
 body {
   background: #f5f5f5;
 }
+.index-content-wrapper {
+  font-size: 0;
+}
+.index-content-wrapper .first-post,
+.index-content-wrapper .post-list {
+  font-size: 1rem;
+  display: inline-block;
+}
+.index-content-wrapper .post-list {
+  width: 25%;
+}
+.index-content-wrapper .first-post {
+  width: 75%;
+}
 .posts .each-post {
-  margin-bottom: 3rem;
+  border-bottom: 1px solid #ccc;
 }
 .posts .each-post:nth-of-type(n+5) {
   display: none;
