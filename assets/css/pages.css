@@ -4,6 +4,9 @@ body {
 .posts .each-post {
   margin-bottom: 3rem;
 }
+.posts .each-post:nth-of-type(n+5) {
+  display: none;
+}
 .post-wrap-link {
   display: block;
   color: #000;
@@ -12,6 +15,7 @@ body {
 }
 .post-wrap-link:hover {
   background: #fff;
+  color: #000;
   box-shadow: 0 0 4px rgba(0,0,0,0.25);
 }
 .post-list-title {

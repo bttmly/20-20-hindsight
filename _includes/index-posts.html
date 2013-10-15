@@ -19,15 +19,6 @@
               {{ post.date | date: '%B %d, %Y' }}
             </p>
           </a>
-          
-            {% if post.tags %}
-              <p class="post-tags">Tags:&nbsp;
-                {% for tag in post.tags %}
-                  {{ tag }}&nbsp;
-                {% endfor %}
-              </p>
-            {% endif %}
-            
         </li>
       {% endunless %}
     {% endfor %}
