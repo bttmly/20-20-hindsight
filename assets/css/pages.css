@@ -27,21 +27,25 @@ body {
 .posts {
   list-style-type: none;
 }
-.posts .each-post {
-  border-bottom: 1px solid #ccc;
-}
 .posts .each-post:nth-of-type(n+5) {
   display: none;
+}
+.posts .each-post:not(:first-of-type) .post-wrap-link {
+  border-top: 1px solid rgba(0,0,0,0.15);
 }
 .post-wrap-link {
   display: block;
   color: #000;
   text-decoration: none;
-  padding: 0.5rem 0;
 }
 .post-wrap-link:hover {
+  background: #fff;
   color: #000;
   text-decoration: underline;
+  box-shadow: 0 0 4px rgba(0,0,0,0.33);
+}
+.post-wrap-link p {
+  margin: 0;
 }
 .post-list-title {
   font-family: sans-serif;
