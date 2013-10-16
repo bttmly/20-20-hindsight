@@ -415,7 +415,8 @@ ol {
   html {
     font-size: 112.5%;
   }
-  .column {
+  .column,
+  .content-column {
     width: 77%;
   }
 }
@@ -423,7 +424,7 @@ ol {
   html {
     font-size: 125%;
   }
-  .column {
+  .column .content-column {
     width: 72%;
   }
 }
@@ -431,7 +432,7 @@ ol {
   html {
     font-size: 137.5%;
   }
-  .column {
+  .column .content-column {
     width: 67%;
   }
 }
@@ -439,7 +440,7 @@ ol {
   html {
     font-size: 150%;
   }
-  .column {
+  .column .content-column {
     width: 52%;
   }
 }
