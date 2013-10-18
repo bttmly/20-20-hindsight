@@ -43,7 +43,6 @@ window.Hindsight = (function() {
     menuToggle: $("#dropdown-toggle"),
     widePostNav: $(".fixed-post-nav"),
     topLink: $(".top-link"),
-    posts: $(".page-type-index .post-body, .page-type-tag .post-body"),
     field: $("#field"),
     content: $("#content"),
     tables: $("table"),
@@ -58,8 +57,8 @@ window.Hindsight = (function() {
     var s;
     s = settings;
     console.log(s);
-    initActions(s);
-    return pageSetup(s);
+    pageSetup(s);
+    return bindActions(s);
   };
   bindActions = function(s) {
     s.menuToggle.bind(s.eventType, function(e) {
@@ -67,9 +66,6 @@ window.Hindsight = (function() {
     });
     s.topLink.bind(s.eventType, function(e) {
       return scrollTop(e);
-    });
-    s.posts.bind(s.eventType, function() {
-      return navigateToPost($(this).attr("data-post-id"));
     });
     s.widePostNav.bind(s.eventType, function() {
       return navigateToPost($(this).attr("data-target-url").split("/").pop());

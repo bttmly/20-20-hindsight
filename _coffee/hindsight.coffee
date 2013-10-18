@@ -51,7 +51,6 @@ window.Hindsight = do ->
     menuToggle : $ "#dropdown-toggle"
     widePostNav : $ ".fixed-post-nav"
     topLink : $ ".top-link" 
-    posts : $ ".page-type-index .post-body, .page-type-tag .post-body"
     field : $ "#field"
     content : $ "#content"
     tables : $ "table"
@@ -64,8 +63,8 @@ window.Hindsight = do ->
   initialize = ->
     s = settings
     console.log s
-    initActions(s)
     pageSetup(s)
+    bindActions(s)
 
   bindActions = (s) ->
     
@@ -74,9 +73,6 @@ window.Hindsight = do ->
     
     s.topLink.bind s.eventType, (e) ->
       scrollTop e
-
-    s.posts.bind s.eventType, ->
-      navigateToPost $(this).attr("data-post-id")
 
     s.widePostNav.bind s.eventType, ->
       navigateToPost $(this).attr("data-target-url").split("/").pop()
