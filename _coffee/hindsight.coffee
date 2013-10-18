@@ -172,7 +172,7 @@ Hindsight = do ->
       if value in array
         return array.splice array.indexOf(value), 1
 
-  init : inititalize
+  init : initialize
   utils : utils
   widthClass : pageWidthClass
   settings : settings

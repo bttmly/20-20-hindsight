@@ -172,7 +172,7 @@
       }
     };
     return {
-      init: inititalize,
+      init: initialize,
       utils: utils,
       widthClass: pageWidthClass,
       settings: settings,
