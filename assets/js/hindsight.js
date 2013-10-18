@@ -169,6 +169,7 @@ window.Hindsight = (function() {
     utils: utils,
     widthClass: pageWidthClass,
     settings: settings,
+    tableData: tableDataBind,
     reflow: function(t) {
       return tableReflow(t);
     }

@@ -172,5 +172,6 @@ window.Hindsight = do ->
   utils : utils
   widthClass : pageWidthClass
   settings : settings
+  tableData : tableDataBind
   reflow : (t) ->
     tableReflow(t)
