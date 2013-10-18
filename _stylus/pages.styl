@@ -18,23 +18,22 @@ body
 
 .index-content-wrapper
 	ibl-parent()
-	.first-post
-	.post-list
+	.sidebar
+	.main-content
 		ibl-child()
-	.post-list
+	.sidebar
 		width 30%
-	.first-post
+	.main-content
 		margin-left 10%
 		width 60%
 
-.posts
+.post-list
 	list-style-type none
 	.each-post
-		// margin-bottom 3rem
-		&:nth-of-type(n+5)
-			display none
 		&:not(:first-of-type) .post-wrap-link
 			border-top 1px solid rgba(0,0,0,.15)
+	.older-post
+		display none
 
 .post-wrap-link
 	display block

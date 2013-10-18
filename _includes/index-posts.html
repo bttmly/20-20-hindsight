@@ -1,10 +1,12 @@
 <div class="index-content-wrapper">
 
-  <div class="post-list">
-    <p class="recent-posts">Recent Posts</p>
-    <ul class="posts">
-      {% for post in site.posts limit:5 offset:1%}
-        <li class="each-post">
+  <div class="sidebar">
+
+    <p class="simple-label">Recent Posts</p>
+    <ul class="post-list" id="post-list">
+      {% for post in site.posts offset:1 %}
+        {% if forloop.index <= 5 %}<li class="each-post recent-post">
+        {% else %}<li class="each-post older-post">{% endif %}
           <a class="post-wrap-link" href="{{ site.basePath }}{{ post.url }}">
             <p class="post-list-title">{{ post.title }}</p>
             <time class="post-list-date" datetime="{{ post.date }}">
@@ -13,17 +15,24 @@
           </a>
         </li>
       {% endfor %}
+      <li>
+        <p class="simple-label" id="show-more-posts" data-older-visible="false">
+          Show <span>More</span> Posts
+        </p>
+      </li>
     </ul>
-    <p class="show-more-posts">Show More Posts</p>
+
   </div>
 
-  <div class="first-post">
-    <p class="newest-post">Newest Post</p>
-    <a class="post-wrap-link" href="{{ site.posts.first.url | remove_first:'/' }}">
+  <div class="main-content">
+
+    <p class="simple-label">Newest Post</p>
+    <article class="post newest-post">
       <h2 class="post-title">{{ site.posts.first.title }}</h2>
       <p class="post-date">{{ site.posts.first.date }}</p>
       {{ site.posts.first.content }}
-    </a>
+    </article>
+
   </div>
 
 </div>

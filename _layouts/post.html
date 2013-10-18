@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<div class="content-column"
+<article class="content-column">
 	<h2>{{ page.title }}</h2>
-	<p class="meta">{{ page.date | date_to_string }}</p>
+	<p class="meta">
+		<time>{{ page.date | date_to_string }}</time>
+	</p>
 
-	<div class="post-body">
-		{{ content }}
-	</div>
+	{{ content }}
 
 	{% include post-pagination.html %}
-</div>
+</article>

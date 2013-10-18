@@ -7,12 +7,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/assets/css/syntax.css">
+        <link rel="stylesheet" href="{{ site.basePath }}{{ site.cssPath }}syntax.css">
 
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="stylesheet" href="{{ site.basePath }}{{ site.cssPath }}main.css">
 
-        <link rel="stylesheet" href="/assets/css/pages.css">
+        <link rel="stylesheet" href="{{ site.basePath }}{{ site.cssPath }}pages.css">
     </head>
     <body>
 
@@ -27,7 +27,7 @@
           {% include footer.html %}
         </div>
         
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="/assets/scripts/hindsight.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="{{ site.basePath }}{{ site.jsPath }}hindsight.js"></script>
     </body>
 </html>
