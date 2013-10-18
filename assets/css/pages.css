@@ -11,27 +11,27 @@ body {
 .index-content-wrapper {
   font-size: 0;
 }
-.index-content-wrapper .first-post,
-.index-content-wrapper .post-list {
+.index-content-wrapper .sidebar,
+.index-content-wrapper .main-content {
   font-size: 1rem;
   display: inline-block;
   vertical-align: top;
 }
-.index-content-wrapper .post-list {
+.index-content-wrapper .sidebar {
   width: 30%;
 }
-.index-content-wrapper .first-post {
+.index-content-wrapper .main-content {
   margin-left: 10%;
   width: 60%;
 }
-.posts {
+.post-list {
   list-style-type: none;
 }
-.posts .each-post:nth-of-type(n+5) {
-  display: none;
-}
-.posts .each-post:not(:first-of-type) .post-wrap-link {
+.post-list .each-post:not(:first-of-type) .post-wrap-link {
   border-top: 1px solid rgba(0,0,0,0.15);
+}
+.post-list .older-post {
+  display: none;
 }
 .post-wrap-link {
   display: block;

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>{{ page.title }} - {{ site.name }}</title>
+        <title>{{ site.name }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- syntax highlighting CSS -->
@@ -29,5 +29,10 @@
         
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="{{ site.basePath }}{{ site.jsPath }}hindsight.js"></script>
+    <script>
+        $(document).ready(function() {
+            Hindsight.init();
+        });
+    </script>
     </body>
 </html>

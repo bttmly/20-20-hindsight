@@ -63,11 +63,11 @@ Hindsight = do ->
     remSize : ->
       settings.page.css "font-size"
 
-  inititalize = ->
+  initialize = ->
     s = settings
     console.log s
     initActions(s)
-    bindActions(s)
+    pageSetup(s)
 
   bindActions = (s) ->
     
@@ -85,10 +85,8 @@ Hindsight = do ->
     
     s.windo.bind 'debouncedresize', ->
       pageWidthClass()
-      
-      if s.tables.length
-        s.tables.each ->
-          tableReflow $(this)
+      s.tables.each ->
+        tableReflow $(this)
     
     s.content.waypoint (dir) ->
       if s.page.is(".no-touch.page-width-wide.first-index-page")
@@ -130,10 +128,6 @@ Hindsight = do ->
     
     return newClass
   
-  arrayRemove = (array, value) ->
-    if value in array
-      return array.splice array.indexOf(value), 1
-  
   fnWaypoint = (dir, target, cl) ->
     if dir is "down"
       target.addClass cl
@@ -162,47 +156,25 @@ Hindsight = do ->
         $(@).attr "data-column-title", columnVals[i]
     
   # these are stupid functions to fix old mistakes or to set up elements that could be referenced in bindActions()
-  initActions = (s) ->
+  pageSetup = (s) ->
     
     if s.tables.length
       s.tables.each ->
         tableDataBind $(this)
         tableReflow $(this)
-    
-    # Fix old formatting problems with post titles.
-    # Not necessary when migrated away from Tumblr.
-    # TODO remove Tumblr-specific fixes 
-    do ->
-      
-      index = ".page-type-index"
-      perma = ".page-type-perma"
-      tag   = ".page-type-tag"
-      
-      if s.page.is perma
-        $("h2").has("a").each (i) ->
-          unless $(@).parents("article.post").is(".post-type-link")
-            $(@).replaceWith "<h2 class='post-title'>#{$(@).text()}</h2>"
-        $("a.post-title").each (i) ->
-          $(@).replaceWith "<h2 class='post-title'>#{$(@).text()}</h2>"
-      else if (s.page.is index) or (s.page.is tag)
-        $("a").has("h2").each (i) ->
-          postId = $(@).parents('article').attr('data-post-id')
-          $(@).replaceWith "<h2 class='post-title'><a href='http://20-20hindsight.tumblr.com/post/#{postId}'>#{$(@).text()}</a></h2>"
 
-      unless s.page.is perma
-        $("div.read-more").each (i) ->
-          postId = $(this).parents(".post-body").attr("data-post-id")
-          $(this).addClass("closed klosed").before("<p><a class='read-more-link' href='http://20-20hindsight.tumblr.com/post/#{postId}'>Read More...</a></p>")
-          console.log "unless ran x#{i}"
-          
     pageWidthClass()
     
-    s.page.addClass "first-index-page"  if window.location.pathname is s.homepagePathname
     s.page.addClass if s.touchDevice then "yes-touch" else "no-touch"
-    
+  
+  utils = 
+    arrayRemove : (array, value) ->
+      if value in array
+        return array.splice array.indexOf(value), 1
+
   init : inititalize
+  utils : utils
   widthClass : pageWidthClass
   settings : settings
   reflow : (t) ->
     tableReflow(t)
-### end module ###

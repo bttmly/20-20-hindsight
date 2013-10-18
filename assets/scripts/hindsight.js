@@ -39,7 +39,7 @@
   window.Hindsight = (_ref = window.Hindsight) != null ? _ref : {};
 
   Hindsight = (function() {
-    var arrayRemove, bindActions, fnWaypoint, initActions, inititalize, navigateToPost, pageWidthClass, scrollTop, settings, tableDataBind, tableReflow;
+    var bindActions, fnWaypoint, initialize, navigateToPost, pageSetup, pageWidthClass, scrollTop, settings, tableDataBind, tableReflow, utils;
     settings = {
       windo: $(window),
       page: $("html"),
@@ -58,12 +58,12 @@
         return settings.page.css("font-size");
       }
     };
-    inititalize = function() {
+    initialize = function() {
       var s;
       s = settings;
       console.log(s);
       initActions(s);
-      return bindActions(s);
+      return pageSetup(s);
     };
     bindActions = function(s) {
       s.menuToggle.bind(s.eventType, function(e) {
@@ -80,11 +80,9 @@
       });
       s.windo.bind('debouncedresize', function() {
         pageWidthClass();
-        if (s.tables.length) {
-          return s.tables.each(function() {
-            return tableReflow($(this));
-          });
-        }
+        return s.tables.each(function() {
+          return tableReflow($(this));
+        });
       });
       s.content.waypoint(function(dir) {
         if (s.page.is(".no-touch.page-width-wide.first-index-page")) {
@@ -125,11 +123,6 @@
       settings.widthClass = newClass;
       return newClass;
     };
-    arrayRemove = function(array, value) {
-      if (__indexOf.call(array, value) >= 0) {
-        return array.splice(array.indexOf(value), 1);
-      }
-    };
     fnWaypoint = function(dir, target, cl) {
       if (dir === "down") {
         target.addClass(cl);
@@ -161,51 +154,26 @@
         });
       });
     };
-    initActions = function(s) {
+    pageSetup = function(s) {
       if (s.tables.length) {
         s.tables.each(function() {
           tableDataBind($(this));
           return tableReflow($(this));
         });
       }
-      (function() {
-        var index, perma, tag;
-        index = ".page-type-index";
-        perma = ".page-type-perma";
-        tag = ".page-type-tag";
-        if (s.page.is(perma)) {
-          $("h2").has("a").each(function(i) {
-            if (!$(this).parents("article.post").is(".post-type-link")) {
-              return $(this).replaceWith("<h2 class='post-title'>" + ($(this).text()) + "</h2>");
-            }
-          });
-          $("a.post-title").each(function(i) {
-            return $(this).replaceWith("<h2 class='post-title'>" + ($(this).text()) + "</h2>");
-          });
-        } else if ((s.page.is(index)) || (s.page.is(tag))) {
-          $("a").has("h2").each(function(i) {
-            var postId;
-            postId = $(this).parents('article').attr('data-post-id');
-            return $(this).replaceWith("<h2 class='post-title'><a href='http://20-20hindsight.tumblr.com/post/" + postId + "'>" + ($(this).text()) + "</a></h2>");
-          });
-        }
-        if (!s.page.is(perma)) {
-          return $("div.read-more").each(function(i) {
-            var postId;
-            postId = $(this).parents(".post-body").attr("data-post-id");
-            $(this).addClass("closed klosed").before("<p><a class='read-more-link' href='http://20-20hindsight.tumblr.com/post/" + postId + "'>Read More...</a></p>");
-            return console.log("unless ran x" + i);
-          });
-        }
-      })();
       pageWidthClass();
-      if (window.location.pathname === s.homepagePathname) {
-        s.page.addClass("first-index-page");
-      }
       return s.page.addClass(s.touchDevice ? "yes-touch" : "no-touch");
+    };
+    utils = {
+      arrayRemove: function(array, value) {
+        if (__indexOf.call(array, value) >= 0) {
+          return array.splice(array.indexOf(value), 1);
+        }
+      }
     };
     return {
       init: inititalize,
+      utils: utils,
       widthClass: pageWidthClass,
       settings: settings,
       reflow: function(t) {
@@ -213,8 +181,5 @@
       }
     };
   })();
-
-  /* end module*/
-
 
 }).call(this);
