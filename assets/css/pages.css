@@ -1,56 +1,72 @@
 *
 *: after;
 *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 body {
   background: #f5f5f5;
   margin-left: 2rem;
   margin-right: 2rem;
 }
+
 .index-content-wrapper {
   font-size: 0;
 }
+
 .index-content-wrapper .sidebar,
 .index-content-wrapper .main-content {
   font-size: 1rem;
   display: inline-block;
   vertical-align: top;
 }
+
 .index-content-wrapper .sidebar {
   width: 30%;
 }
+
 .index-content-wrapper .main-content {
   margin-left: 10%;
   width: 60%;
 }
+
 .post-list {
   list-style-type: none;
 }
+
 .post-list .each-post:not(:first-of-type) .post-wrap-link {
   border-top: 1px solid rgba(0,0,0,0.15);
 }
+
 .post-list .older-post {
   display: none;
 }
+
 .post-wrap-link {
   display: block;
   color: #000;
   text-decoration: none;
 }
+
 .post-wrap-link:hover {
   background: #fff;
   color: #000;
   text-decoration: underline;
+  -webkit-box-shadow: 0 0 4px rgba(0,0,0,0.33);
   box-shadow: 0 0 4px rgba(0,0,0,0.33);
 }
+
 .post-wrap-link p {
   margin: 0;
 }
+
 .post-list-title {
   font-family: sans-serif;
   font-weight: bold;
 }
+
 .footer-links {
   list-style-type: none;
 }

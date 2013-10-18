@@ -43,9 +43,7 @@
     threshold: 150
 ) jQuery
 
-window.Hindsight = window.Hindsight ? {}
-
-Hindsight = do ->
+window.Hindsight = do ->
   settings =
     windo : $ window
     page : $ "html" 
