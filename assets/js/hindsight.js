@@ -67,6 +67,9 @@ window.Hindsight = (function() {
     s.topLink.bind(s.eventType, function(e) {
       return scrollTop(e);
     });
+    s.posts.bind(s.eventType, function() {
+      return navigateToPost($(this).attr("data-post-id"));
+    });
     s.widePostNav.bind(s.eventType, function() {
       return navigateToPost($(this).attr("data-target-url").split("/").pop());
     });
@@ -96,7 +99,7 @@ window.Hindsight = (function() {
     return window.location.pathname = "/post/" + postId;
   };
   pageWidthClass = function(w) {
-    var classList, classToAdd;
+    var classList, classToAdd, newClass;
     if (w == null) {
       w = window.innerWidth;
     }
@@ -112,6 +115,7 @@ window.Hindsight = (function() {
     };
     classList = ["page-width-narrow", "page-width-medium", "page-width-wide"];
     settings.page.removeClass(classList.join(" ")).addClass(classToAdd(w));
+    newClass = classToAdd(w);
     settings.widthClass = newClass;
     return newClass;
   };
