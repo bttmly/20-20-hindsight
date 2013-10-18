@@ -74,9 +74,6 @@ window.Hindsight = do ->
     s.topLink.bind s.eventType, (e) ->
       scrollTop e
 
-    s.posts.bind s.eventType, ->
-      navigateToPost $(this).attr("data-post-id")
-
     s.widePostNav.bind s.eventType, ->
       navigateToPost $(this).attr("data-target-url").split("/").pop()
     

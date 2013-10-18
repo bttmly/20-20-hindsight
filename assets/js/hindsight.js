@@ -67,9 +67,6 @@ window.Hindsight = (function() {
     s.topLink.bind(s.eventType, function(e) {
       return scrollTop(e);
     });
-    s.posts.bind(s.eventType, function() {
-      return navigateToPost($(this).attr("data-post-id"));
-    });
     s.widePostNav.bind(s.eventType, function() {
       return navigateToPost($(this).attr("data-target-url").split("/").pop());
     });
