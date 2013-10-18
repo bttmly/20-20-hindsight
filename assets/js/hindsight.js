@@ -124,19 +124,19 @@ window.Hindsight = (function() {
     }
     return target.is(cl);
   };
-  tableReflow = function(table) {
+  tableReflow = function($table) {
     var parentWidth;
-    parentWidth = table.parent().width();
-    if (table.width() > parent.width()) {
-      return table.addClass("table-reflowed");
+    parentWidth = $table.parent().width();
+    if ($table.width() > parentWidth) {
+      return $table.addClass("table-reflowed");
     } else {
-      return table.removeClass("table-reflowed");
+      return $table.removeClass("table-reflowed");
     }
   };
-  tableDataBind = function(table) {
+  tableDataBind = function($table) {
     var columnVals, header, tableBody;
-    header = table.find("thead tr");
-    tableBody = table.find("tbody");
+    header = $table.find("thead tr");
+    tableBody = $table.find("tbody");
     columnVals = [];
     header.children("th").each(function() {
       return columnVals.push($(this).html());

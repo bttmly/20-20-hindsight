@@ -133,17 +133,17 @@ window.Hindsight = do ->
   
   # all this does is turn the .table-reflowed class on and off
   # CSS does everything else.
-  tableReflow = (table) ->
-    parentWidth = table.parent().width()
-    if table.width() > parent.width()
-      table.addClass "table-reflowed"
+  tableReflow = ($table) ->
+    parentWidth = $table.parent().width()
+    if $table.width() > parentWidth
+      $table.addClass "table-reflowed"
     else 
-      table.removeClass "table-reflowed"
+      $table.removeClass "table-reflowed"
   
   # call this on window.ready to prep tables for possible reflow   
-  tableDataBind = (table) ->
-    header = table.find "thead tr" 
-    tableBody = table.find "tbody"
+  tableDataBind = ($table) ->
+    header = $table.find "thead tr" 
+    tableBody = $table.find "tbody"
     columnVals = []
     header.children("th").each ->
       columnVals.push $(@).html()
