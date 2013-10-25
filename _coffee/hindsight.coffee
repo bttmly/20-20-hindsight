@@ -175,3 +175,5 @@ window.Hindsight = do ->
   tableData : tableDataBind
   reflow : (t) ->
     tableReflow(t)
+
+
