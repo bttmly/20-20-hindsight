@@ -2,7 +2,7 @@ name: 20/20 Hindsight
 markdown: redcarpet
 pygments: true
 excerpt_separator: <!-- more -->
-permalink: blog/:year/:month/:day/:title.html
-basePath: http://20-20-hindsight.github.io/
-cssPath: assets/css/
-jsPath: assets/js/
+permalink: /blog/:year/:month/:day/:title.html
+# basePath: http://20-20-hindsight>b.io/
+cssPath: /assets/css/
+jsPath: /assets/js/
